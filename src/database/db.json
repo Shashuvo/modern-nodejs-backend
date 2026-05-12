@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Wireless Mouse",
+        "category": "Electronics",
+        "price": 25.99,
+        "stock": 50,
+        "brand": "LogiTech"
+    },
+    {
+        "id": 2,
+        "name": "Mechanical Keyboard",
+        "category": "Electronics",
+        "price": 79.99,
+        "stock": 30,
+        "brand": "KeyMaster"
+    },
+    {
+        "id": 3,
+        "name": "Running Shoes",
+        "category": "Sports",
+        "price": 59.99,
+        "stock": 20,
+        "brand": "FastTrack"
+    },
+    {
+        "id": 4,
+        "name": "Water Bottle",
+        "category": "Accessories",
+        "price": 12.5,
+        "stock": 100,
+        "brand": "HydroMax"
+    },
+    {
+        "id": 5,
+        "name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "price": 45.0,
+        "stock": 15,
+        "brand": "SoundBeat"
+    }
+]
