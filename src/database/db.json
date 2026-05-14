@@ -35,8 +35,16 @@
         "id": 5,
         "name": "Bluetooth Speaker",
         "category": "Electronics",
-        "price": 45.0,
+        "price": 45,
         "stock": 15,
         "brand": "SoundBeat"
+    },
+    {
+        "id": 1778770370815,
+        "name": "Mobile Phone",
+        "category": "Electronics",
+        "price": 15.99,
+        "stock": 80,
+        "brand": "Samsung"
     }
 ]
