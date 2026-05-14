@@ -1,3 +1,4 @@
+
 import type { IncomingMessage, ServerResponse } from "http";
 import { insertProduct, readProduct } from "../services/productsServices";
 import type { Products } from "../types/productsType";
@@ -9,8 +10,6 @@ export const productsController = async (req: IncomingMessage, res: ServerRespon
 
     const urlParts = url?.split("/");
     const id = urlParts && urlParts[1] === "products" ? Number(urlParts[2]) : null;
-
-
     // GET all products
     if (url === "/products" && method === "GET") {
         const products = readProduct();
@@ -44,6 +43,26 @@ export const productsController = async (req: IncomingMessage, res: ServerRespon
         res.end(JSON.stringify({
             message: "Product posted successfully.",
             data: newProduct
+        }));
+    }
+    // PUT method
+    else if (method === "PUT" && id !== null) {
+        const body = await parseBody(req);
+        const products = readProduct();
+        const index = products.findIndex((p: Products) => p.id === id);
+        if (index < 0) {
+            res.writeHead(404, { "content-type": "application/json" });
+            res.end(JSON.stringify({
+                message: "Product not found.",
+                data: "not available"
+            }));
+        }
+        products[index] = { id: products[index].id, ...body };
+        insertProduct(products);
+        res.writeHead(200, { "content-type": "application/json" });
+        res.end(JSON.stringify({
+            message: "Product updated successfully.",
+            data: products[index]
         }));
     }
 }

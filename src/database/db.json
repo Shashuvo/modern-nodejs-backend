@@ -9,11 +9,11 @@
     },
     {
         "id": 2,
-        "name": "Mechanical Keyboard",
-        "category": "Electronics",
-        "price": 79.99,
-        "stock": 30,
-        "brand": "KeyMaster"
+        "name": "Running Shoes",
+        "category": "Sports",
+        "price": 59.99,
+        "stock": 20,
+        "brand": "Adidas"
     },
     {
         "id": 3,
