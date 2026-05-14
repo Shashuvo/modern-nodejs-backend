@@ -8,14 +8,6 @@
         "brand": "LogiTech"
     },
     {
-        "id": 2,
-        "name": "Running Shoes",
-        "category": "Sports",
-        "price": 59.99,
-        "stock": 20,
-        "brand": "Adidas"
-    },
-    {
         "id": 3,
         "name": "Running Shoes",
         "category": "Sports",
