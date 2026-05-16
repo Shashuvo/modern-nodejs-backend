@@ -54,7 +54,7 @@ app.post("/api/users", async (req: Request, res: Response) => {
         `, [name, email, password, age]);
         res.status(201).json({
             success: true,
-            message: "User Created Successfully",
+            message: "User has been successfully posted!",
             data: result.rows[0]
         })
     } catch (error: any) {
@@ -74,7 +74,7 @@ app.get("/api/users", async (req: Request, res: Response) => {
         `);
         res.status(200).json({
             success: true,
-            message: "Users Retrieved Successfully",
+            message: "Users has been successfully retrieved!",
             data: result.rows
         })
     } catch (error: any) {
@@ -102,7 +102,7 @@ app.get("/api/users/:id", async (req: Request, res: Response) => {
         }
         res.status(200).json({
             success: true,
-            message: "User Retrieved Successfully",
+            message: "User has been successfully retrieved!",
             data: result.rows[0]
         })
     } catch (error: any) {
