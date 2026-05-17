@@ -143,6 +143,34 @@ app.put("/api/users/:id", async (req: Request, res: Response) => {
     }
 })
 
+// DELEtE method
+app.delete("/api/users/:id", async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query(`
+            DELETE FROM users WHERE id = $1
+        `, [id]);
+        if (result.rowCount === 0) {
+            res.status(404).json({
+                success: false,
+                message: "User Not Found!!",
+                data: "NOT FOUND!"
+            })
+        }
+        res.status(200).json({
+            success: true,
+            message: "User has been successfully deleted!",
+            data: result.rows
+        })
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            error: error
+        })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
