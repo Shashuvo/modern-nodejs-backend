@@ -120,7 +120,7 @@ app.put("/api/users/:id", async (req: Request, res: Response) => {
     const { name, age, password, is_active } = req.body;
     try {
         const result = await pool.query(`
-            UPDATE users SET name = $1, age = $2, password = $3, is_active = $4 WHERE id = $5 RETURNING *
+            UPDATE users SET name = COALESCE($1, name), age = COALESCE($2, age), password = COALESCE($3, password), is_active = COALESCE($4, is_active) WHERE id = $5 RETURNING *
         `, [name, age, password, is_active, id]);
         if (result.rows.length === 0) {
             res.status(404).json({
