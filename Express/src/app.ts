@@ -1,5 +1,6 @@
 import express, { urlencoded, type Application, type Request, type Response } from "express";
 import { pool } from "./db";
+import { userRouter } from "./modules/user/user.route";
 const app: Application = express();
 
 app.use(express.json());
@@ -15,28 +16,8 @@ app.get("/", (req: Request, res: Response) => {
     });
 });
 
-// POST a user
-app.post("/api/users", async (req: Request, res: Response) => {
-    const { name, email, password, age } = req.body;
+app.use("/api/users", userRouter);
 
-    try {
-        const result = await pool.query(`
-            INSERT INTO users(name, email, password, age) VALUES($1,$2,$3,$4)
-            RETURNING *
-        `, [name, email, password, age]);
-        res.status(201).json({
-            success: true,
-            message: "User has been successfully posted!",
-            data: result.rows[0]
-        })
-    } catch (error: any) {
-        res.status(500).json({
-            success: false,
-            message: error.message,
-            error: error
-        })
-    }
-})
 
 // GET all users
 app.get("/api/users", async (req: Request, res: Response) => {
