@@ -3,4 +3,5 @@ export interface USER {
     email: string;
     password: string;
     age: number;
+    is_active?: boolean;
 }
